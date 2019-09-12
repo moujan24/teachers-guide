@@ -1,8 +1,8 @@
 # teachers-guide
 
-##CSIT321 Major project
+## CSIT321 Major project
 
-###Project Intro
+### Project Intro
 
 Our vision is to provide the Illawarra Shoalhaven Local Health District (ISLHD) with a user-
 friendly website and an application that includes the information pack, related to mental
@@ -10,7 +10,7 @@ friendly website and an application that includes the information pack, related 
 health conditions and first aid of students in Schools, to be easily accessible to the key
 stakeholders when needed.
 
-###Project Objectives
+### Project Objectives
 
 • To allow the teachers to view the information pack when needed
 • To allow the teachers to log in to their account to view information
@@ -21,7 +21,7 @@ systems
 • To allow the client to log in to the system to make changes at anytime
 • To allow the client to make it visible to different types of stakeholders
 
-###Steps to get started
+### Steps to get started
 
 1. Install SQL server on your system
 2. Restore database 'TeachersGuide.bak'(to be uploaded)
@@ -29,6 +29,6 @@ systems
 4. Go to TeachersGuide/appsettings.json and change the database string to connected to the previously restored TeachersGuide database.
 5. Run on visual studio code.
 
-###The Team
+### The Team
 
 Find info on the project and the team members at https://nipeshkc7.github.io
