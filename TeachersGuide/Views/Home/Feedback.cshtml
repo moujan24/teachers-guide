@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Feedback";
+}
+
+<div class="container">
+    <div class="content d-flex flex-column justify-content-around flex-wrap align-items-center">
+        <h2>Feedback</h2><br>
+        <div class="form-container">
+            <form class="feedback-form" action="/action_page.php">
+                <h3>How was your experience with the system?</h3>
+                <div class="form-group">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Very Good
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Good
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Neutral
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Bad
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Very Bad
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
+                Limit is 400 words.
+
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-info ">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

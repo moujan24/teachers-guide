@@ -1,0 +1,15 @@
+﻿@model TeacherViewModel
+@{
+    ViewData["Title"] = "Secondary_A";
+}
+
+
+<div class="container">
+    <div class="content d-flex flex-column justify-content-around flex-wrap align-items-center">
+        <h2>What Behaviour can you see in the student's A behaviours?</h2><br>
+        @foreach (var behaviour in Model.bPT)
+        {
+            <a href="~/teacher/secondary_a"><button type="button" class="btn btn-select">@behaviour.Behaviour</button></a><br>
+        }
+    </div>
+</div>

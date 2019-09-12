@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*<div class="container">
+    <img src="~/Images/banner.jpg" alt="banner" class="image">
+    <div class="overlay">My Name is John</div>
+</div>
+
+<div><p>Something...</p></div>
+<hr />
+<button><a href="~/home/about_guide">About Guide</a></button>
+<button><a href="~/teacher/primary">Start</a></button>*@
+
+<div class="jumbotron banner">
+    <div class="overlay d-flex flex-wrap align-content-center row">
+        <h1 class="introduction col-sm-12">Mental health Online</h1> <br>
+        <br>
+        <p class="buttons col-sm-12">
+            <a asp-controller="Teacher" asp-action="primary"><button type="button" class="btn btn-primary btn-lg">Get started</button></a>
+            &nbsp &nbsp
+            <a asp-controller="home" asp-action="about_guide"><button type="button" class="btn btn-secondary btn-lg">About Us</button></a>
+        </p>
+    </div>
+</div>
