@@ -27,7 +27,7 @@ systems
 2. Restore database 'TeachersGuide.bak'(to be uploaded)
 3. Make sure you have ASP.NET web development kit for your version of Visual Studio.
 4. Go to TeachersGuide/appsettings.json and change the database string to connected to the previously restored TeachersGuide database.
-5. Run on visual studio code.
+5. Run on visual studio.
 
 ### The Team
 
