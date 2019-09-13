@@ -12,11 +12,13 @@ namespace TeachersGuide.Contrillers
     {
         private readonly IBehaviorPageTowRepository _behaviorPageTowRepository;
         private readonly IBehaviourPageOneRepository _behaviourPageOneRepository;
+        private readonly IInterventionsModifiedRepository _interventionsModifiedRepository;
         //private readonly IInterventionsRepository _interventionsRepository;
-        public TeacherController(IBehaviorPageTowRepository behaviorPageTowRepository, IBehaviourPageOneRepository behaviourPageOneRepository/*, IInterventionsRepository interventionsRepository*/)
+        public TeacherController(IBehaviorPageTowRepository behaviorPageTowRepository, IBehaviourPageOneRepository behaviourPageOneRepository, IInterventionsModifiedRepository interventionsModifiedRepository)
         {
             _behaviorPageTowRepository = behaviorPageTowRepository;
             _behaviourPageOneRepository = behaviourPageOneRepository;
+            _interventionsModifiedRepository = interventionsModifiedRepository;
             //_interventionsRepository = interventionsRepository;
         }
         public IActionResult Primary()
@@ -41,6 +43,15 @@ namespace TeachersGuide.Contrillers
         public IActionResult Secondary_B()
         {
             return View(2);
+        }
+        public IActionResult Intervention()
+        {
+            IEnumerable<InterventionsModified> _iM = _interventionsModifiedRepository.GetAll();
+            var teacherViewModel = new TeacherViewModel()
+            {
+                iM = _iM.ToList()
+            };
+            return View(teacherViewModel);
         }
     }
 }

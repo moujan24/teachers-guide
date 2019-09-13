@@ -10,5 +10,6 @@ namespace TeachersGuide.ViewModels
     {
         public IEnumerable<BehaviourPageOne> bPO { get; set; }
         public IEnumerable<BehaviorPageTow> bPT { get; set; }
+        public IEnumerable<InterventionsModified> iM { get; set; }
     }
 }

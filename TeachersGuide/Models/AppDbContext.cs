@@ -15,5 +15,6 @@ namespace TeachersGuide.Models
 
         public DbSet<BehaviourPageOne> BehaviourPageOne { get; set; }
         public DbSet<BehaviorPageTow> BehaviorPageTow { get; set; }
+        public DbSet<InterventionsModified> InterventionsModified { get; set; }
     }
 }

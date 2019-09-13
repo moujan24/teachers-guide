@@ -1,0 +1,43 @@
+@model TeacherViewModel
+@{
+    ViewData["Title"] = "Intervention";
+}
+
+<div class="container">
+    <div class="content d-flex flex-column justify-content-around flex-wrap align-items-center">
+    <h2>Intervention for students</h2>
+    <br>
+
+    <div class="index">
+        <h2>
+        Intervention key:</h2>
+        <div class="row d-flex justify-content-around">
+            <div class="social"></div>
+            Social
+            <div class="learning"></div>
+            Learning
+            <div class="environmental"></div>
+            Environmental
+            <div class="communication"></div>
+            Communication
+        </div>
+    </div>
+    </div>
+    <div class="row d-flex justify-content-start">
+
+    @foreach (var interventions in Model.iM){
+        <div class="card">
+            <div class="card-header card-header-@interventions.interventionKey"></div>
+            <div class="card-body">
+                <h3 class="card-title d-flex justify-content-center">@interventions.title</h3>
+                <p class="card-text">@interventions.description</p>
+            </div>
+            <div class="card-footer d-flex justify-content-around">
+                <a href="@interventions.articleLink"><i class="fa fa-info"></i></a>
+                <i class="fa fa-book"></i>
+                <i class="fa fa-download"></i>
+            </div>
+        </div>
+        }
+    </div>
+</div>

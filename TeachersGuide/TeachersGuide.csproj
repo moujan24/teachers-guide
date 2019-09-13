@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Teacher\intervention.cshtml" />
     <Content Remove="wwwroot\banner.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Teacher\intervention.cshtml" />
     <None Include="wwwroot\Images\banner.jpg" />
   </ItemGroup>
 

@@ -27,6 +27,7 @@ namespace TeachersGuide
             services.AddDbContext<AppDbContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IBehaviorPageTowRepository, BehaviorPageTowRepository>();
             services.AddTransient<IBehaviourPageOneRepository,BehaviourPageOneRepository>();
+            services.AddTransient<IInterventionsModifiedRepository, InterventionsModifiedRepository>();
             //services.AddTransient<IInterventionsRepository,InterventionRepository>();
             //services.AddTransient<IFeedBackRepository,FeedBackRepository>();
             services.AddMvc();
