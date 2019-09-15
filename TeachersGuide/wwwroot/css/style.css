@@ -18,6 +18,15 @@ body{
     font-family: gothambook;
 }
 
+.bordered{
+    border:1.5px solid grey;
+    border-radius:5px;
+    padding: 8px;
+}
+
+.non-bordered-with-padding{
+    padding 8px;
+}
 .primary-navbar{
     background-color:white;
     margin:0;
@@ -74,8 +83,9 @@ ul li{
 }
 
 .btn-select{
-    background-color: #d7153a;
-    width:160px;
+    background-color: forestgreen;
+    width:380px;
+    color:white;
 }
 
 .btn-select a{
@@ -229,6 +239,8 @@ form{
 .dashboard-content{
     margin-bottom:100px;
 }
+
+
 
 /* editor.html */
 
@@ -408,3 +420,5 @@ form{
       margin:10px;
       border:1px solid lightgrey;
   }
+
+  

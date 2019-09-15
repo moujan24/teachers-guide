@@ -12,7 +12,7 @@ namespace TeachersGuide.Contrillers
     {
         private readonly IBehaviorPageTowRepository _behaviorPageTowRepository;
         private readonly IBehaviourPageOneRepository _behaviourPageOneRepository;
-        private readonly IInterventionsModifiedRepository _interventionsModifiedRepository;
+        private IInterventionsModifiedRepository _interventionsModifiedRepository;      //NOT READONLY !!
         //private readonly IInterventionsRepository _interventionsRepository;
         public TeacherController(IBehaviorPageTowRepository behaviorPageTowRepository, IBehaviourPageOneRepository behaviourPageOneRepository, IInterventionsModifiedRepository interventionsModifiedRepository)
         {
@@ -21,6 +21,9 @@ namespace TeachersGuide.Contrillers
             _interventionsModifiedRepository = interventionsModifiedRepository;
             //_interventionsRepository = interventionsRepository;
         }
+
+        // :GET: /Teacher/Primary
+
         public IActionResult Primary()
         {
             IEnumerable<BehaviourPageOne> _bPO = _behaviourPageOneRepository.GetAll();
@@ -30,6 +33,9 @@ namespace TeachersGuide.Contrillers
             };
             return View(teacherViewModel);
         }
+
+        // :GET: /Teacher/Secondary_A
+
         public IActionResult Secondary_A(long id)
         {
             IEnumerable<BehaviorPageTow> _bPT = _behaviorPageTowRepository.GetBehaviorPageTows(id);
@@ -40,10 +46,16 @@ namespace TeachersGuide.Contrillers
             };
             return View(teacherViewModel);
         }
+
+        // :GET: /Teacher/Secondary_B
+
         public IActionResult Secondary_B()
         {
             return View(2);
         }
+
+        // :GET: /Teacher/Intervention
+
         public IActionResult Intervention()
         {
             IEnumerable<InterventionsModified> _iM = _interventionsModifiedRepository.GetAll();
@@ -53,5 +65,6 @@ namespace TeachersGuide.Contrillers
             };
             return View(teacherViewModel);
         }
+        
     }
 }

@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Teacher\intervention.cshtml" />
     <Content Remove="wwwroot\banner.jpg" />
   </ItemGroup>
 

@@ -1,31 +1,34 @@
 @model TeacherViewModel
 @{
     ViewData["Title"] = "Intervention";
+    ViewData["controllerBefore"] = "Teacher";
+    ViewData["pageBefore"] = "Primary";
 }
 
 <div class="container">
     <div class="content d-flex flex-column justify-content-around flex-wrap align-items-center">
-    <h2>Intervention for students</h2>
-    <br>
+        <h2>Intervention for students</h2>
+        <br>
 
-    <div class="index">
-        <h2>
-        Intervention key:</h2>
-        <div class="row d-flex justify-content-around">
-            <div class="social"></div>
-            Social
-            <div class="learning"></div>
-            Learning
-            <div class="environmental"></div>
-            Environmental
-            <div class="communication"></div>
-            Communication
+        <div class="index">
+            <h2>
+                Wellbeing key:
+            </h2>
+            <div class="row d-flex justify-content-around">
+                <div class="social"></div>
+                Social
+                <div class="learning"></div>
+                Learning
+                <div class="environmental"></div>
+                Environmental
+                <div class="communication"></div>
+                Communication
+            </div>
         </div>
-    </div>
     </div>
     <div class="row d-flex justify-content-start">
 
-    @foreach (var interventions in Model.iM){
+        @foreach (var interventions in Model.iM){
         <div class="card">
             <div class="card-header card-header-@interventions.interventionKey"></div>
             <div class="card-body">

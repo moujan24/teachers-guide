@@ -25,5 +25,10 @@ namespace TeachersGuide.Contrillers
         {
             return View();
         }
+
+        public IActionResult disclaimerPage()
+        {
+            return View();
+        }
     }
 }

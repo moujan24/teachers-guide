@@ -1,0 +1,51 @@
+﻿@model TeachersGuide.Models.InterventionsModified
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+    <h2>Edit</h2>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="id" />
+                <div class="form-group">
+                    <label asp-for="BPTid" class="control-label"></label>
+                    <input asp-for="BPTid" class="form-control" />
+                    <span asp-validation-for="BPTid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="title" class="control-label"></label>
+                    <input asp-for="title" class="form-control" />
+                    <span asp-validation-for="title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="interventionKey" class="control-label"></label>
+                    <input asp-for="interventionKey" class="form-control" />
+                    <span asp-validation-for="interventionKey" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="description" class="control-label"></label>
+                    <input asp-for="description" class="form-control" />
+                    <span asp-validation-for="description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="articleLink" class="control-label"></label>
+                    <input asp-for="articleLink" class="form-control" />
+                    <span asp-validation-for="articleLink" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="AddInterventions">Back to List</a>
+    </div>
+</div>

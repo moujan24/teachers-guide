@@ -16,5 +16,24 @@ namespace TeachersGuide.Models
         {
             return _interventionsModified.ToList();
         }
+
+        public bool addNewIntervention(InterventionsModified newIntervention)
+        {
+            return true;
+        }
+        public InterventionsModified getId(long id)
+        {
+            return new InterventionsModified();
+        }
+
+        public bool delete(long id)
+        {
+            return true;
+        }
+
+        public bool edit(InterventionsModified interventionsModified)
+        {
+            return true;
+        }
     }
 }
