@@ -8,5 +8,6 @@ namespace TeachersGuide.Models
     public interface IFeedBackRepository
     {
         IEnumerable<FeedBack> GetAll();
+        void Submit(FeedBack feedBack);
     }
 }

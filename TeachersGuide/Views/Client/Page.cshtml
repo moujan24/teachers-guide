@@ -8,24 +8,30 @@
         <h2>Dashboard</h2><br>
     </div>
     <div class="row d-flex justify-content-center dashboard-content">
-        <div class="card dashboard-card">
-            <div class="card-body dashboard-card-body">
-                <i class="fa fa-smile-o dashboard-icons"></i>
-                <h3 class="card-title d-flex justify-content-center">View Feedback</h3>
+        <a asp-controller="Client" asp-action="Feedback">
+            <div class="card dashboard-card">
+                <div class="card-body dashboard-card-body">
+                    <i class="fa fa-smile-o dashboard-icons"></i>
+                    <h3 class="card-title d-flex justify-content-center">Feedback</h3>
+                </div>
             </div>
-        </div>
-        <div class="card dashboard-card">
-            <div class="card-body dashboard-card-body">
-                <i class="fa fa-line-chart dashboard-icons"></i>
-                <h3 class="card-title d-flex justify-content-center">Statistics</h3>
+        </a>
+        <a asp-controller="Client" asp-action="Statistics">
+            <div class="card dashboard-card">
+                <div class="card-body dashboard-card-body">
+                    <i class="fa fa-line-chart dashboard-icons"></i>
+                    <h3 class="card-title d-flex justify-content-center">Statistics</h3>
+                </div>
             </div>
-        </div>
-        <div class="card dashboard-card">
-            <div class="card-body dashboard-card-body">
-                <i class="fa fa-edit dashboard-icons"></i>
-                <h3 class="card-title d-flex justify-content-center"><a asp-controller="Client" asp-action="AddInterventions">Add Interventions</a></h3>
+        </a>
+        <a asp-controller="Client" asp-action="EditBehaviour_P1">
+            <div class="card dashboard-card">
+                <div class="card-body dashboard-card-body">
+                    <i class="fa fa-edit dashboard-icons"></i>
+                    <h3 class="card-title d-flex justify-content-center">Edit</h3>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 

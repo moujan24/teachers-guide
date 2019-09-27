@@ -1,14 +1,12 @@
 ﻿@model TeacherViewModel
 @{
     ViewData["Title"] = "Primary";
-    ViewData["controllerBefore"] = "home";
-    ViewData["pageBefore"] = "disclaimerPage";
 }
 
 
 <div class="container">
     <div class="content d-flex flex-column justify-content-around flex-wrap align-items-center">
-        <h2>What Behaviour can you observe in the student?</h2><br>
+        <h2>What Behaviour can you see in the student?</h2><br>
         @foreach (var behaviour in Model.bPO)
         {
             <a asp-controller="Teacher" asp-action="Secondary_A" asp-route-id="@behaviour.Id"><button type="button" class="btn btn-select">@behaviour.Behaviour</button></a><br>

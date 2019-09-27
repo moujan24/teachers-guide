@@ -1,17 +1,16 @@
 ﻿@model TeacherViewModel
 @{
     ViewData["Title"] = "Secondary_A";
-    ViewData["controllerBefore"] = "Teacher";
-    ViewData["pageBefore"] = "Primary";
 }
 
 
 <div class="container">
     <div class="content d-flex flex-column justify-content-around flex-wrap align-items-center">
-        <h2>What Behaviour can you Observe in the student's A behaviours?</h2><br>
+        <h2>What Behaviour can you see in the student's A behaviours?</h2><br>
         @foreach (var behaviour in Model.bPT)
         {
-            <a href="~/teacher/intervention"><button type="button" class="btn btn-select">@behaviour.Behaviour</button></a><br>
+            <a asp-controller="Teacher" asp-action="Intervention" asp-route-id="@behaviour.Id"><button type="button" class="btn btn-select">@behaviour.Behaviour</button></a><br>
+            @*<button type="submit" class="btn btn-info "id="@behaviour.Id">@behaviour.Behaviour</button><br>*@
         }
     </div>
 </div>

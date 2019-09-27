@@ -1,0 +1,31 @@
+﻿@model ClientViewModel
+
+    <div class="container">
+        <br />
+        <br />
+            <table class="table table-striped">
+                <tr>
+                    <th>Created on</th>
+                    <th>Rate</th>
+                    <th>Comment</th>
+                </tr>
+                @foreach (var feedback in Model.feedBacks)
+                {
+                    <tr>
+                        <td>@feedback.CreateTime</td>
+                        <td>  @feedback.Rate</td>
+                       
+                        @if (feedback.Comment == null)
+                        {
+                            <td>No Comment</td>
+                        }
+                        else
+                        {
+                            <td>@feedback.Comment</td>
+                        }
+                    </tr>
+                }
+            </table>
+            <a asp-controller="Client" asp-action="Page">Back</a>
+     
+    </div>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BehaviorPageTow>
+<div class="container">
+    <br />
+    <a asp-controller="Client" asp-action="Page">Back</a>
+    <br />
+    <br />
+    <div class="d-flex flex-wrap align-content-stretch">
+        <table class="table table-striped">
+            <tr>
+                <th>Behaviours</th>
+                <th>Click Count</th>
+            </tr>
+            @foreach (var bPT in Model)
+            {
+                @*<div class="card" style="width:350px;">
+                    <div style="padding:10px;">
+                        <h3 class="card-title d-flex justify-content-center"> @bPT.Behaviour</h3><br />
+                        <span class="d-flex justify-content-center">Click count:  @bPT.Count</span><br />
+                    </div>
+                </div>*@
+            <tr>
+                <td>@bPT.Behaviour</td>
+                <td>@bPT.Count</td>
+            </tr>
+            }
+            </table>
+
+</div>
+
+    </div>

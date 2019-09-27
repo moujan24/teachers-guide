@@ -10,9 +10,10 @@ namespace TeachersGuide.Contrillers
 {
     public class TeacherController : Controller
     {
+        public int i;
         private readonly IBehaviorPageTowRepository _behaviorPageTowRepository;
         private readonly IBehaviourPageOneRepository _behaviourPageOneRepository;
-        private IInterventionsModifiedRepository _interventionsModifiedRepository;      //NOT READONLY !!
+        private IInterventionsModifiedRepository _interventionsModifiedRepository;
         //private readonly IInterventionsRepository _interventionsRepository;
         public TeacherController(IBehaviorPageTowRepository behaviorPageTowRepository, IBehaviourPageOneRepository behaviourPageOneRepository, IInterventionsModifiedRepository interventionsModifiedRepository)
         {
@@ -20,22 +21,22 @@ namespace TeachersGuide.Contrillers
             _behaviourPageOneRepository = behaviourPageOneRepository;
             _interventionsModifiedRepository = interventionsModifiedRepository;
             //_interventionsRepository = interventionsRepository;
+            i = 0;
         }
-
-        // :GET: /Teacher/Primary
-
+        public int getI()
+        {
+            return i;
+        }
         public IActionResult Primary()
         {
             IEnumerable<BehaviourPageOne> _bPO = _behaviourPageOneRepository.GetAll();
+            this.i = 1;
             var teacherViewModel=new TeacherViewModel() {
 
                 bPO = _bPO.ToList()
             };
             return View(teacherViewModel);
         }
-
-        // :GET: /Teacher/Secondary_A
-
         public IActionResult Secondary_A(long id)
         {
             IEnumerable<BehaviorPageTow> _bPT = _behaviorPageTowRepository.GetBehaviorPageTows(id);
@@ -46,25 +47,20 @@ namespace TeachersGuide.Contrillers
             };
             return View(teacherViewModel);
         }
-
-        // :GET: /Teacher/Secondary_B
-
-        public IActionResult Secondary_B()
-        {
-            return View(2);
-        }
+        
 
         // :GET: /Teacher/Intervention
 
-        public IActionResult Intervention()
+        public IActionResult Intervention(long id)
         {
-            IEnumerable<InterventionsModified> _iM = _interventionsModifiedRepository.GetAll();
+            _behaviorPageTowRepository.Edit(id);
+            IEnumerable<InterventionsModified> _iM = _interventionsModifiedRepository.GetCategory(id);
             var teacherViewModel = new TeacherViewModel()
             {
                 iM = _iM.ToList()
             };
             return View(teacherViewModel);
         }
-        
+
     }
 }

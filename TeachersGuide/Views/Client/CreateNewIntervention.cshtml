@@ -1,19 +1,28 @@
-﻿@model TeachersGuide.Models.InterventionsModified
-
+﻿@model InterventionsModified
+@{
+    List<InterventionKey> Keys  = new List<InterventionKey>
+        {
+                    new InterventionKey{Key="Social"},
+                    new InterventionKey{Key="Learning"},
+                    new InterventionKey{Key="Environmental"},
+                    new InterventionKey{Key="Communication"},
+                };
+}
 
 <div class="container">
     <br />
     <br />
     <h4>InterventionsModified</h4>
     <hr />
+
+    @if (ViewBag.Flag == 1)
+    {
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="CreateNewIntervention">
+            <form asp-action="CreateNewIntervention" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="BPTid" class="control-label"></label>
-                    <input asp-for="BPTid" class="form-control" />
-                    <span asp-validation-for="BPTid" class="text-danger"></span>
+                    <input asp-for="BPTid" class="form-control" type="hidden"/>
                 </div>
                 <div class="form-group">
                     <label asp-for="title" class="control-label"></label>
@@ -21,9 +30,11 @@
                     <span asp-validation-for="title" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="interventionKey" class="control-label"></label>
-                    <input asp-for="interventionKey" class="form-control" />
-                    <span asp-validation-for="interventionKey" class="text-danger"></span>
+                  
+                    <label asp-for="interventionKey" class="control-label"></label><br />
+                    
+                    <select name="interventionKey" asp-for="interventionKey" asp-items="@(new SelectList(Keys, "Key", "Key"))"></select>
+                   
                 </div>
                 <div class="form-group">
                     <label asp-for="description" class="control-label"></label>
@@ -41,8 +52,12 @@
             </form>
         </div>
     </div>
-
+    }
+    else
+    {
+        <p>Item has been added...</p>
+    }
     <div>
-        <a asp-action="AddInterventions">Back to List</a>
+        <a asp-action="Details_BPT" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout">Back to List</a>
     </div>
 </div>

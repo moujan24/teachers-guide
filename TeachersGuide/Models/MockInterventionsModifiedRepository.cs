@@ -35,5 +35,10 @@ namespace TeachersGuide.Models
         {
             return true;
         }
+
+        public IEnumerable<InterventionsModified> GetCategory(long Id)
+        {
+            return _interventionsModified.Where(d => d.BPTid == Id).ToList();
+        }
     }
 }

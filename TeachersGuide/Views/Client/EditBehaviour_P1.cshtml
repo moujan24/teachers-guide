@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BehaviourPageOne>
+<div class="container">
+    <br>
+    <br>
+    <p>
+        <a asp-action="CreateNewBPO">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Behaviour)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Behaviour)
+                    </td>
+                    <td>
+                        <a asp-action="Edit_BPO" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Delete_bPO" asp-route-id="@item.Id">Delete</a> |
+                        <a asp-action="Details_BPO" asp-route-id="@item.Id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-controller="Client" asp-action="Page">Back</a>
+</div>

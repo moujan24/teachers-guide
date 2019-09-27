@@ -12,5 +12,7 @@ namespace TeachersGuide.Models
         public long BPOId { get; set; }
 
         public string Behaviour { get; set; }
+
+        public long Count { get; set; }
     }
 }

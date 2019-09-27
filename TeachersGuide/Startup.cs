@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,9 +28,13 @@ namespace TeachersGuide
             services.AddDbContext<AppDbContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IBehaviorPageTowRepository, BehaviorPageTowRepository>();
             services.AddTransient<IBehaviourPageOneRepository,BehaviourPageOneRepository>();
+            services.AddTransient<IFeedBackRepository,FeedBackRepository>();
             services.AddTransient<IInterventionsModifiedRepository, InterventionsModifiedRepository>();
+            //services.AddTransient<IUsers, MockUsers>();
             //services.AddTransient<IInterventionsRepository,InterventionRepository>();
             //services.AddTransient<IFeedBackRepository,FeedBackRepository>();
+            // [Asma Khalid]: Register SQL database configuration context as services.    
+           
             services.AddMvc();
         }
 
@@ -42,11 +47,10 @@ namespace TeachersGuide
             }
             app.UseMvc(ConfigRoutes);
             app.UseStaticFiles();
-
         }
         private static void ConfigRoutes(IRouteBuilder routes)
         {
-            routes.MapRoute(name:"Default", template:"{controller=home}/{action=index}/{id?}");
+            routes.MapRoute(name:"Default", template:"{controller=home}/{action=index}/{id?}/{Data?}");
         }
     }
 }

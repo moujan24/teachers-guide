@@ -16,5 +16,10 @@ namespace TeachersGuide.Models
         {
             return _feedBacks.ToList();
         }
+
+        public void Submit(FeedBack feedBack)
+        {
+            _feedBacks.Add(feedBack);
+        }
     }
 }

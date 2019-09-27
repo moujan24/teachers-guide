@@ -8,6 +8,7 @@ namespace TeachersGuide.Models
     public interface IInterventionsModifiedRepository
     {
         IEnumerable<InterventionsModified> GetAll();
+        IEnumerable<InterventionsModified> GetCategory(long Id);
         bool addNewIntervention(InterventionsModified newIntervention);
         InterventionsModified getId(long id);
         bool delete(long id);

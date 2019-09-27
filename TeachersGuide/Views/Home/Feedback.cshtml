@@ -1,4 +1,4 @@
-﻿
+﻿@model FeedBack
 @{
     ViewData["Title"] = "Feedback";
 }
@@ -7,38 +7,38 @@
     <div class="content d-flex flex-column justify-content-around flex-wrap align-items-center">
         <h2>Feedback</h2><br>
         <div class="form-container">
-            <form class="feedback-form" action="/action_page.php">
+            <form class="feedback-form" asp-action="feedback" method="post">
                 <h3>How was your experience with the system?</h3>
-                <div class="form-group">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio">Very Good
+                <div class="form-group" >
+                    <div class="form-check" >
+                        <label class="form-check-label" asp-for="@Model.Rate" >
+                            <input type="radio" class="form-check-input" name="Rate" asp-for="@Model.Rate" value="Very Good" checked="checked">Very Good
                         </label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio">Good
+                        <label class="form-check-label" asp-for="@Model.Rate" >
+                            <input type="radio" class="form-check-input" name="Rate" asp-for="@Model.Rate" value="Good">Good
                         </label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio">Neutral
+                        <label class="form-check-label" asp-for="@Model.Rate" >
+                            <input type="radio" class="form-check-input" name="Rate" asp-for="@Model.Rate" value="Neutral">Neutral
                         </label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio">Bad
+                        <label class="form-check-label" asp-for="@Model.Rate" >
+                            <input type="radio" class="form-check-input" name="Rate" asp-for="@Model.Rate" value="Bad">Bad
                         </label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio">Very Bad
+                        <label class="form-check-label" asp-for="@Model.Rate" >
+                            <input type="radio" class="form-check-input" name="Rate" asp-for="@Model.Rate" value="Very Bad">Very Bad
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="comment">Comment:</label>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    <label asp-for="Comment">Comment:</label>
+                    <textarea class="form-control" rows="5" id="comment" asp-for="Comment"></textarea>
                 </div>
                 Limit is 400 words.
 

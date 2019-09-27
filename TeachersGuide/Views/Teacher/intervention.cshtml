@@ -1,4 +1,4 @@
-@model TeacherViewModel
+﻿@model TeacherViewModel
 @{
     ViewData["Title"] = "Intervention";
     ViewData["controllerBefore"] = "Teacher";
@@ -15,32 +15,33 @@
                 Wellbeing key:
             </h2>
             <div class="row d-flex justify-content-around">
-                <div class="social"></div>
+                <div class="Social"></div>
                 Social
-                <div class="learning"></div>
+                <div class="Learning"></div>
                 Learning
-                <div class="environmental"></div>
+                <div class="Environmental"></div>
                 Environmental
-                <div class="communication"></div>
+                <div class="Communication"></div>
                 Communication
             </div>
         </div>
     </div>
     <div class="row d-flex justify-content-start">
 
-        @foreach (var interventions in Model.iM){
-        <div class="card">
-            <div class="card-header card-header-@interventions.interventionKey"></div>
-            <div class="card-body">
-                <h3 class="card-title d-flex justify-content-center">@interventions.title</h3>
-                <p class="card-text">@interventions.description</p>
+        @foreach (var interventions in Model.iM)
+        {
+            <div class="card">
+                <div class="card-header card-header-@interventions.interventionKey"></div>
+                <div class="card-body">
+                    <h3 class="card-title d-flex justify-content-center">@interventions.title</h3>
+                    <p class="card-text">@interventions.description</p>
+                </div>
+                <div class="card-footer d-flex justify-content-around">
+                    <a href="@interventions.articleLink"><i class="fa fa-info"></i></a>
+                    <i class="fa fa-book"></i>
+                    <i class="fa fa-download"></i>
+                </div>
             </div>
-            <div class="card-footer d-flex justify-content-around">
-                <a href="@interventions.articleLink"><i class="fa fa-info"></i></a>
-                <i class="fa fa-book"></i>
-                <i class="fa fa-download"></i>
-            </div>
-        </div>
         }
     </div>
 </div>

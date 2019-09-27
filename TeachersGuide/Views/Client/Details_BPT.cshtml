@@ -1,0 +1,57 @@
+﻿@model IEnumerable<InterventionsModified>
+    <div class="container">
+        <br>
+        <br>
+        <p>
+            <a asp-action="CreateNewIntervention" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.BPTid)
+                    </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.interventionKey)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.articleLink)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.BPTid)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.interventionKey)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.articleLink)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.id" asp-route-Data="@ViewBag.rout" >Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@item.id"  asp-route-Data="@ViewBag.rout">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a asp-controller="Client" asp-action="Details_BPO" asp-route-id="@ViewBag.rout" >Back</a>
+    </div>

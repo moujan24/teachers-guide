@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TeachersGuide.Models
 {
-    public class InterventionsModifiedRepository:IInterventionsModifiedRepository
+    public class InterventionsModifiedRepository : IInterventionsModifiedRepository
     {
-        private AppDbContext _appDbContext;         //change to readonly
+        private readonly AppDbContext _appDbContext;         //change to readonly
         public InterventionsModifiedRepository(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
@@ -33,12 +33,10 @@ namespace TeachersGuide.Models
 
         public bool edit(InterventionsModified interventionsModified)
         {
-            //InterventionsModified interventionToEdit = _appDbContext.InterventionsModified.Find(interventionsModified.id);
             _appDbContext.Entry(interventionsModified).State = EntityState.Modified;
             Console.Write("DatatobeEdited :: ");
             Console.Write(interventionsModified.id);
             Console.Write(interventionsModified.articleLink);
-            //_appDbContext.InterventionsModified.Update(interventionsModified);
             try
             {
                 _appDbContext.SaveChanges();
@@ -64,6 +62,11 @@ namespace TeachersGuide.Models
             {
                 return false;
             }
+        }
+
+        public IEnumerable<InterventionsModified> GetCategory(long Id)
+        {
+            return _appDbContext.InterventionsModified.Where(d=>d.BPTid==Id).ToList();
         }
     }
 }
