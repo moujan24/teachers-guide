@@ -1,4 +1,4 @@
-# teachers-guide
+ # teachers-guide
 
 ## CSIT321 Major project
 
@@ -12,14 +12,14 @@ stakeholders when needed.
 
 ### Project Objectives
 
-• To allow the teachers to view the information pack when needed
-• To allow the teachers to log in to their account to view information
-• To make it available online on a website
-• To make it available as an application that is compatible with both iOS and Android operating
+1. To allow the teachers to view the information pack when needed
+2. To allow the teachers to log in to their account to view information
+3. To make it available online on a website
+4. To make it available as an application that is compatible with both iOS and Android operating
 systems
-• To be able to implement it in all NSW schools
-• To allow the client to log in to the system to make changes at anytime
-• To allow the client to make it visible to different types of stakeholders
+5. To be able to implement it in all NSW schools
+6. To allow the client to log in to the system to make changes at anytime
+7. To allow the client to make it visible to different types of stakeholders
 
 ### Steps to get started
 
@@ -32,3 +32,23 @@ systems
 ### The Team
 
 Find info on the project and the team members at https://nipeshkc7.github.io
+
+## TODO:: 
+
+### ARPAN :: 
+
+1. Improve buttons contrast in the pages
+2. Put better banner at the front.
+3. Interventions pages in a tabbed layout
+4. Dashboard page to have a better design.
+5. Seperate UI for each bargraph
+6. Dashboard page will display overall stats.
+
+### Moujan ::
+
+1. Login functionality
+2. Make only the interventions editable (not the behaviours) 
+
+Optional:
+
+3. Try to attach click count with a specific date (so the front-end can display click counts by months or weeks in a bargraph or some other type of infographic)
