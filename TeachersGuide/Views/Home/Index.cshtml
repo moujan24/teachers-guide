@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Home";
 }
 
@@ -7,7 +6,6 @@
         <img src="~/Images/banner.jpg" alt="banner" class="image">
         <div class="overlay">My Name is John</div>
     </div>
-
     <div><p>Something...</p></div>
     <hr />
     <button><a href="~/home/about_guide">About Guide</a></button>
@@ -15,10 +13,10 @@
 
 <div class="jumbotron banner">
     <div class="overlay d-flex flex-wrap align-content-center row">
-        <h1 class="introduction col-sm-12">Supporting the Wellbeing of  Primary <br />School Children</h1> <br>
-        <br>
-        <p class="buttons col-sm-12">
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 scrim-protect">
+            <h1 class="introduction">Supporting the Wellbeing of  Primary School Children</h1>
             <a asp-controller="Home" asp-action="disclaimerPage"><button type="button" class="btn btn-primary btn-lg">Next &#10095;&#10095;</button></a>
-        </p>
+        </div>
     </div>
 </div>

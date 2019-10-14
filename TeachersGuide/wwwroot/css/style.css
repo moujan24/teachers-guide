@@ -44,7 +44,8 @@ body {
 
 
 .secondary-navbar {
-    background-color: #0a7cb9;
+    /*background-color: #0a7cb9;*/
+    background-color: #802A90;
     font-family: gothammedium;
     padding: 4px;
 }
@@ -63,31 +64,50 @@ ul li {
 }
 
 .banner {
-    background-image: url('../Images/Cover2.png');
+    background-image: url('../Images/Cover6.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    height: 600px;
+    height: 500px;
     padding: 0;
     margin-bottom: 0;
 }
 
 .overlay {
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    /*background: rgb(0, 0, 0);*/
+    /*background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    /*background:white;*/
     color: #f1f1f1;
     width: 100%;
     height: 100%;
+    padding:50px;
+}
+
+.scrim-protect {
+    background: rgba(51,49,50,.75); /* Black see-through */
+    padding: 40px 22px;
+    border-top: 4px solid #F1590C;
 }
 
 .introduction, .buttons {
-    text-align: center;
-    padding: 10px;
-    text-align: center;
+    color: #F4F4F9;
+    margin-bottom: 20px;
 }
 
 .btn-primary {
-    background-color: #f9be00;
+    background-color: #F1590C;
     border: 0;
+    color: whitesmoke;
+    border-radius:0px;
+    font-size:18px;
+    font-family:'Arial Rounded MT';
+}
+
+.btn-primary:hover  {
+    background: #D14C0A; 
+}
+
+.btn-primary::after{
+    background:green;
 }
 
 .btn-secondary {
@@ -101,24 +121,151 @@ ul li {
     color: white;
 }
 
-    .btn-select a {
-        color: white;
-        text-align: center;
-        font-weight: bold;
-    }
+.btn-select a {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
 
-        .btn-select a:hover {
-            text-decoration: none;
-        }
+.btn-select a:hover {
+    text-decoration: none;
+}
 
 .introduction {
-    font-size: 45px;
-    font-family: gothambold;
+    font-size: 30px;
+    font-family:'Arial Rounded MT';
+    letter-spacing:0.5px;
 }
 
 button {
-    font-size: 29px;
+    font-size: 28px;
 }
+
+.intervention-tab {
+    border: 1px lightgrey solid;
+    margin-bottom:90px;
+}
+
+.intervention-tab li{
+    border-bottom:1px solid lightgrey;
+    padding:5px;
+}
+
+.intervention-tab li a{
+   
+}
+#myTabContent{
+    padding:20px 5px;
+    height:auto;
+}
+
+    /*#myTabContent::before,
+    #myTabContent::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-color: transparent;
+        border-style: solid;
+    }
+
+
+    #myTabContent::after {
+        border-width: 1.35em;
+        border-right-color: #0c0;
+        border-top-color: #0c0;
+    }*/
+
+.icon-group .fa{
+    font-size:30px;
+}
+
+.icon-group .fa .icon-text{
+    font-size:15px;
+    font-family:gothambold;
+    text-decoration:underline;
+}
+.nav-item-Communication {
+    border-left: 8px solid #0A7CB9;
+
+}
+.nav-item-Environmental {
+    border-left: 8px solid #69B32D;
+}
+.nav-item-Social {
+    border-left: 8px solid #F9BE00;
+}
+.nav-item-Learning {
+    border-left: 8px solid #D7153A;
+}
+
+.nav-item-Communication a {
+    color: black;
+}
+.nav-item-Environmental a {
+    color: black;
+}
+.nav-item-Social a {
+    color: black;
+}
+.nav-item-Learning a {
+    color: black;
+}
+
+.hide-right-border {
+    border-right: 0px solid black;
+    border-left-width: 12px;
+    animation-name: pulse;
+    animation-duration: 0.5s;
+    -webkit-transform: scale3d(1.02, 1.02, 1.02);
+    transform: scale3d(1.02, 1.02, 1.02);
+}
+
+@-webkit-keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.02, 1.02, 1.02);
+        transform: scale3d(1.02, 1.02, 1.02);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.tab-pane{
+    height:inherit;
+}
+
+.icon-group{
+    height:inherit;
+    margin-top:30px;
+}
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1.02, 1.02, 1.02);
+    }
+}
+.list-group-item:first-child, .list-group-item:last-child {
+    border-radius: 0px;
+}
+
 
 .footer {
     padding: 50px 0;
