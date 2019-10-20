@@ -1,35 +1,46 @@
 ﻿@model IEnumerable<BehaviorPageTow>
 
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-<div class="container">
-    <br>
-    <br>
-    <p>
-        <a asp-action="CreateNewBPT" asp-route-id="@Model.First().BPOId">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Behaviour)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Behaviour)
-                    </td>
-                    <td>
-                        <a asp-action="Edit_BPT" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Delete_BPT" asp-route-id="@item.Id">Delete</a> |
-                        <a asp-action="Details_BPT" asp-route-id="@item.Id" asp-route-data="@item.BPOId">Details</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <a asp-controller="Client" asp-action="EditBehaviour_P1">Back</a>
+    <!-- Page Heading -->
+    <br />
+    <h1 class="h3 mb-2 text-gray-800">Edit Interventions and behaviours</h1>
+    <p class="mb-4">Edit interventions</p>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Secondary set of Behaviours</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                @Html.DisplayNameFor(model => model.Behaviour)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Behaviour)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit_BPT" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Delete_BPT" asp-route-id="@item.Id">Delete</a> |
+                                    <a asp-action="Details_BPT" asp-route-id="@item.Id" asp-route-data="@item.BPOId">Details</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
+<!-- /.container-fluid -->

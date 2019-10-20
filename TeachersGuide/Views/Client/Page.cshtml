@@ -3,35 +3,9 @@
     ViewData["Title"] = "Client Page";
 }
 
-<div class="container">
-    <div class="content d-flex flex-column justify-content-around flex-wrap align-items-center">
-        <h2>Dashboard</h2><br>
-    </div>
-    <div class="row d-flex justify-content-center dashboard-content">
-        <a asp-controller="Client" asp-action="Feedback">
-            <div class="card dashboard-card">
-                <div class="card-body dashboard-card-body">
-                    <i class="fa fa-smile-o dashboard-icons"></i>
-                    <h3 class="card-title d-flex justify-content-center">Feedback</h3>
-                </div>
-            </div>
+        <a asp-controller="Client" asp-action="Feedback">Feedback
         </a>
-        <a asp-controller="Client" asp-action="Statistics">
-            <div class="card dashboard-card">
-                <div class="card-body dashboard-card-body">
-                    <i class="fa fa-line-chart dashboard-icons"></i>
-                    <h3 class="card-title d-flex justify-content-center">Statistics</h3>
-                </div>
-            </div>
+        <a asp-controller="Client" asp-action="Statistics">Statistics
         </a>
-        <a asp-controller="Client" asp-action="EditBehaviour_P1">
-            <div class="card dashboard-card">
-                <div class="card-body dashboard-card-body">
-                    <i class="fa fa-edit dashboard-icons"></i>
-                    <h3 class="card-title d-flex justify-content-center">Edit</h3>
-                </div>
-            </div>
+        <a asp-controller="Client" asp-action="EditBehaviour_P1">Edit
         </a>
-    </div>
-</div>
-

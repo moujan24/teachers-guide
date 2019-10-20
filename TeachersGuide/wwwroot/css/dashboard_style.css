@@ -1,0 +1,22 @@
+﻿body {
+    font-family: Montserrat, Arial, sans-serif;
+    color: #53575F;
+}
+
+.table-responsive{
+    overflow-x:hidden;
+}
+
+.sidebar {
+    background-color:#2E5299;
+}
+
+.table {
+    font-weight: 400;
+    color: #53575F;
+}
+
+a {
+    color: #4e73df;
+    font-weight:700;
+}

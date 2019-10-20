@@ -1,57 +1,78 @@
 ﻿@model IEnumerable<InterventionsModified>
-    <div class="container">
-        <br>
-        <br>
-        <p>
-            <a asp-action="CreateNewIntervention" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout">Create New</a>
-        </p>
-        <table class="table">
-            <thead>
-                <tr>
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.BPTid)
-                    </th>*@
-                    <th>
-                        @Html.DisplayNameFor(model => model.title)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.interventionKey)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.description)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.articleLink)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.BPTid)
-                        </td>*@
-                        <td>
-                            @Html.DisplayFor(modelItem => item.title)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.interventionKey)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.articleLink)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.id" asp-route-Data="@ViewBag.rout" >Edit</a> |
-                            <a asp-action="Delete" asp-route-id="@item.id"  asp-route-Data="@ViewBag.rout">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <a asp-controller="Client" asp-action="Details_BPO" asp-route-id="@ViewBag.rout" >Back</a>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <br />
+    <h1 class="h3 mb-2 text-gray-800">Edit interventions and behaviours</h1>
+    <p class="mb-4">Edit interventions</p>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Interventions Table</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <p>
+                        <a  asp-action="CreateNewIntervention" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout"  class="btn btn-primary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                            <span class="text">Add intervention</span>
+                        </a>
+                    </p>
+
+                    <thead>
+                        <tr>
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.BPTid)
+                                </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.title)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.interventionKey)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.articleLink)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.BPTid)
+                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.interventionKey)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.articleLink)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.id" asp-route-Data="@ViewBag.rout">Edit</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.id" asp-route-Data="@ViewBag.rout">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
+</div>
+<!-- /.container-fluid -->

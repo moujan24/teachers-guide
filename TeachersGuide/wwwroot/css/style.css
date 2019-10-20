@@ -45,7 +45,8 @@ body {
 
 .secondary-navbar {
     /*background-color: #0a7cb9;*/
-    background-color: #802A90;
+    /*background-color: #802A90;*/
+    background-color: #2E5299;
     font-family: gothammedium;
     padding: 4px;
 }
@@ -55,6 +56,9 @@ ul li {
     padding: 0px 10px;
 }
 
+.progress-bar {
+    background: #00ABE6;
+}
 .logo {
     height: 115px;
 }
@@ -85,7 +89,8 @@ ul li {
 .scrim-protect {
     background: rgba(51,49,50,.75); /* Black see-through */
     padding: 40px 22px;
-    border-top: 4px solid #F1590C;
+    /*border-top: 4px solid #F1590C;*/
+    border-top: 4px solid #D7153A;
 }
 
 .introduction, .buttons {
@@ -94,12 +99,13 @@ ul li {
 }
 
 .btn-primary {
-    background-color: #F1590C;
+    /*background-color: #F1590C;*/
+    background-color: #D7153A;
     border: 0;
     color: whitesmoke;
-    border-radius:0px;
-    font-size:18px;
-    font-family:'Arial Rounded MT';
+    border-radius: 0px;
+    font-size: 18px;
+    font-family: 'Arial Rounded MT';
 }
 
 .btn-primary:hover  {
@@ -149,8 +155,12 @@ button {
 .intervention-tab li{
     border-bottom:1px solid lightgrey;
     padding:5px;
+    width:inherit;
 }
 
+.table {
+    color: #858796;
+}
 .intervention-tab li a{
    
 }
@@ -184,6 +194,19 @@ button {
     font-size:15px;
     font-family:gothambold;
     text-decoration:underline;
+}
+
+span.icon-text a{
+    color:black;
+}
+
+.intervention-title{
+    width:inherit;
+    overflow:hidden;
+}
+
+.icon-text:hover{
+    cursor:pointer;
 }
 .nav-item-Communication {
     border-left: 8px solid #0A7CB9;
@@ -244,7 +267,7 @@ button {
 
 .icon-group{
     height:inherit;
-    margin-top:30px;
+    margin-top:50px;
 }
 @keyframes pulse {
     from {
@@ -278,7 +301,7 @@ button {
 }
 
     .footer a {
-        color: grey;
+        color: #000000;
     }
 
 .footer-links {
@@ -316,7 +339,12 @@ h2 {
 .index {
     width: 100%;
     border: 1px solid #DEE3E5;
-    padding: 20px 10px;
+    padding: 20px 40px;
+
+}
+
+.index-sections{
+    margin:30px;
 }
 
 h3 {
@@ -327,9 +355,12 @@ h3 {
 }
 
 .Communication, .Learning, .Environmental, .Social {
-    width: 60px;
-    height: 30px;
+    display:inline-block;
+    width: 50px;
+    height:50px;
     border: 1px solid #DEE3E5;
+    border-radius:50px;
+    margin:-20px 10px;
 }
 
 .Communication, .card-header-Communication {
@@ -479,6 +510,7 @@ form {
 
 .x-index {
     margin-bottom: 20px;
+    padding:30px;
 }
 
 /* intervention-second */

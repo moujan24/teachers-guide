@@ -1,15 +1,15 @@
 ﻿@model InterventionsModified
 @{
-    List<InterventionKey> Keys  = new List<InterventionKey>
-        {
-                    new InterventionKey{Key="Social"},
-                    new InterventionKey{Key="Learning"},
-                    new InterventionKey{Key="Environmental"},
-                    new InterventionKey{Key="Communication"},
-                };
+    List<InterventionKey> Keys = new List<InterventionKey>
+{
+            new InterventionKey{Key="Social"},
+            new InterventionKey{Key="Learning"},
+            new InterventionKey{Key="Environmental"},
+            new InterventionKey{Key="Communication"},
+        };
 }
 
-<div class="container">
+@*<div class="container">
     <br />
     <br />
     <h4>InterventionsModified</h4>
@@ -17,41 +17,41 @@
 
     @if (ViewBag.Flag == 1)
     {
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="CreateNewIntervention" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <input asp-for="BPTid" class="form-control" type="hidden"/>
-                </div>
-                <div class="form-group">
-                    <label asp-for="title" class="control-label"></label>
-                    <input asp-for="title" class="form-control" />
-                    <span asp-validation-for="title" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                  
-                    <label asp-for="interventionKey" class="control-label"></label><br />
-                    
-                    <select name="interventionKey" asp-for="interventionKey" asp-items="@(new SelectList(Keys, "Key", "Key"))"></select>
-                   
-                </div>
-                <div class="form-group">
-                    <label asp-for="description" class="control-label"></label>
-                    <input asp-for="description" class="form-control" />
-                    <span asp-validation-for="description" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="articleLink" class="control-label"></label>
-                    <input asp-for="articleLink" class="form-control" />
-                    <span asp-validation-for="articleLink" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </form>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="CreateNewIntervention" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <input asp-for="BPTid" class="form-control" type="hidden" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="title" class="control-label"></label>
+                        <input asp-for="title" class="form-control" />
+                        <span asp-validation-for="title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+
+                        <label asp-for="interventionKey" class="control-label"></label><br />
+
+                        <select name="interventionKey" asp-for="interventionKey" asp-items="@(new SelectList(Keys, "Key", "Key"))"></select>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="description" class="control-label"></label>
+                        <input asp-for="description" class="form-control" />
+                        <span asp-validation-for="description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="articleLink" class="control-label"></label>
+                        <input asp-for="articleLink" class="form-control" />
+                        <span asp-validation-for="articleLink" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
     }
     else
     {
@@ -59,5 +59,64 @@
     }
     <div>
         <a asp-action="Details_BPT" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout">Back to List</a>
+    </div>
+</div>*@
+
+<br />
+<div class="container-fluid row">
+    <br />
+    <div class="col-sm-6">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Create new intervention</h6>
+            </div>
+            <div class="card-body">
+                @if (ViewBag.Flag == 1)
+                {
+                    <div class="row">
+                        <div class="col-md-8">
+                            <form asp-action="CreateNewIntervention" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <input asp-for="BPTid" class="form-control" type="hidden" />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="title" class="control-label"></label>
+                                    <input asp-for="title" class="form-control" />
+                                    <span asp-validation-for="title" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+
+                                    <label asp-for="interventionKey" class="control-label"></label><br />
+
+                                    <select name="interventionKey" asp-for="interventionKey" asp-items="@(new SelectList(Keys, "Key", "Key"))"></select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="description" class="control-label"></label>
+                                    <textarea asp-for="description" class="form-control" cols="2" rows="5"></textarea>
+                                    <span asp-validation-for="description" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="articleLink" class="control-label"></label>
+                                    <input asp-for="articleLink" class="form-control" />
+                                    <span asp-validation-for="articleLink" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Create" class="btn btn-info" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <p>Item has been added...</p>
+                }
+                <div>
+                    <a asp-action="Details_BPT" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout"> << Back to List</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
