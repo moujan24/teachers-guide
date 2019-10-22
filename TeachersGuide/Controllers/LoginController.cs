@@ -1,24 +1,29 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TeachersGuide.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace TeachersGuide.Controllers
 {
     public class LoginController : Controller
     {
         private readonly IUsersRepository usersRepository;
+        
+        //private SignInManager<Users> _signManager;
+        public LoginController(/*IUsersRepository _usersRepository*/)
+        {
+            //usersRepository = _usersRepository;
+        }
+
         public IActionResult Login()
         {
             return View();
         }
-        
-        //private SignInManager<Users> _signManager;
-        public LoginController(IUsersRepository _usersRepository)
-        {
-            usersRepository = _usersRepository;
-        }
-      
+
+
         //[HttpGet]
         //public IActionResult Login(string returnUrl = "")
         //{
@@ -30,22 +35,13 @@ namespace TeachersGuide.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var result = await _signManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
-                //if (result.Succeeded)
-                //{
-                //  if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
-                //{
-                //    return Redirect(model.ReturnUrl);
+                //if (usersRepository.verifyUser(model)) {
+                return RedirectToAction("Page", "Client");
                 //}
-                //else  
-                //{
-                        //bool x= usersRepository.verifyUser(model);
-                        return RedirectToAction("Page", "Client");
-                    //}
-                //}
+                //else
+                //    return BadRequest();
             }
-            //ModelState.AddModelError("", "Invalid login attempt");
-            return View(model);
+            return BadRequest();
         }
     }
 }

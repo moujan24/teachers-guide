@@ -9,15 +9,15 @@
 </div>
 <div class="container">
     <div class="content">
-        <h3>Q) What Behaviour can you see in the student?</h3><br>
+        <h3>Q) What Behaviour can you see in the student?</h3>
+        <br>
         <div class="list-group">
             @foreach (var behaviour in Model.bPO)
             {
-            //    <a asp-controller="Teacher" asp-action="Secondary_A" asp-route-id="@behaviour.Id"><button type="button" class="btn btn-select">@behaviour.Behaviour</button></a><br>
-            <a asp-controller="Teacher" asp-action="Secondary_A" asp-route-id="@behaviour.Id" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                @behaviour.Behaviour
-                <h5>&#10095;</h5>
-            </a>
+                <a asp-controller="Teacher" asp-action="Secondary_A" asp-route-id="@behaviour.Id" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    @behaviour.Behaviour
+                    <h5>&#10095;</h5>
+                </a>
             }
         </div>
 

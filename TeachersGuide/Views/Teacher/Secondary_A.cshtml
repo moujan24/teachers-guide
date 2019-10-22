@@ -10,12 +10,11 @@
 
 <div class="container">
     <div class="content" id="mainContent">
-        <h3>Q) What Behaviour can you see in the student's behaviours?</h3><br>
+        <h3>Q) What Behaviour can you see in the student's behaviours?</h3>
+        <br>
         <div class="list-group">
             @foreach (var behaviour in Model.bPT)
             {
-                //<a asp-controller="Teacher" asp-action="Intervention" asp-route-id="@behaviour.Id"><button type="button" class="btn btn-select">@behaviour.Behaviour</button></a><br>
-                //<button type="submit" class="btn btn-info "id="@behaviour.Id">@behaviour.Behaviour</button><br>
                 <a asp-controller="Teacher" asp-action="Intervention" asp-route-id="@behaviour.Id" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                     @behaviour.Behaviour
                     <h5>&#10095;</h5>

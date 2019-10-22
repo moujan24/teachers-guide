@@ -33,24 +33,7 @@
             </div>
         </div>
     </div>
-    @*<div class="row d-flex justify-content-start">
 
-        @foreach (var interventions in Model.iM)
-        {
-            <div class="card">
-                <div class="card-header card-header-@interventions.interventionKey"></div>
-                <div class="card-body">
-                    <h3 class="card-title d-flex justify-content-center">@interventions.title</h3>
-                    <p class="card-text">@interventions.description</p>
-                </div>
-                <div class="card-footer d-flex justify-content-around">
-                    <a href="@interventions.articleLink"><i class="fa fa-info"></i></a>
-                    <i class="fa fa-book"></i>
-                    <i class="fa fa-download"></i>
-                </div>
-            </div>
-        }
-    </div>*@
     <div class="row intervention-tab">
         <ul class="nav flex-column col-sm-3 list-group">
             @{int first_item_counter = 0;}
@@ -59,7 +42,8 @@
                 <li class="nav-item nav-item-@interventions.interventionKey list-group-item @(first_item_counter==0?"hide-right-border":"")" id="list-item-@interventions.id" onclick="hideBorder(this.id)">
                     <a class="nav-link d-flex justify-content-between" id="nav-@interventions.id-tab" data-toggle="tab" href="#nav-@interventions.id" role="tab" aria-controls="nav-@interventions.id" aria-selected="false">
                         <span class="intervention-title"><b>@interventions.title</b></span>
-                        &nbsp;&nbsp;<h5 style="@(first_item_counter==0?"visibility:hidden":"")">&#10095;</h5>
+                        &nbsp;&nbsp;
+                        <h5 style="@(first_item_counter==0?"visibility:hidden":"")">&#10095;</h5>
                     </a>
                 </li>
                 first_item_counter++;
@@ -70,21 +54,21 @@
             @{first_item_counter = 0;}
             @foreach (var interventions in Model.iM)
             {
-                
-            <div class="tab-pane fade @(first_item_counter==0?"show active":"")" id="nav-@interventions.id" role="tabpanel" aria-labelledby="nav-@interventions.id-tab">
 
-                <h3 class="card-title d-flex justify-content-center">@interventions.title</h3>
-                <br />
-                @interventions.description
-                <br />
+                <div class="tab-pane fade @(first_item_counter==0?"show active":"")" id="nav-@interventions.id" role="tabpanel" aria-labelledby="nav-@interventions.id-tab">
 
-                <div class="row icon-group d-flex justify-content-around flex-wrap align-content-end">
-                    <i class="fa fa-file-pdf-o"> <span class="icon-text" onclick="saveToPdf('@interventions.title','@interventions.description','@interventions.articleLink')"><a href="#">Download PDF</a> </span></i>
-                    <i class="fa fa-newspaper-o"> <span class="icon-text"><a href='@interventions.articleLink' target="_blank"> View Article</a></span></i>
+                    <h3 class="card-title d-flex justify-content-center">@interventions.title</h3>
+                    <br />
+                    @interventions.description
+                    <br />
+
+                    <div class="row icon-group d-flex justify-content-around flex-wrap align-content-end">
+                        <i class="fa fa-file-pdf-o"> <span class="icon-text" onclick="saveToPdf('@interventions.title','@interventions.description','@interventions.articleLink')"><a href="#">Download PDF</a> </span></i>
+                        <i class="fa fa-newspaper-o"> <span class="icon-text"><a href='@interventions.articleLink' target="_blank"> View Article</a></span></i>
+                    </div>
+                    <br />
                 </div>
-                <br />
-            </div>
-            first_item_counter++;
+                first_item_counter++;
             }
         </div>
     </div>
@@ -106,24 +90,24 @@
 
     var getUrl = window.location;
     var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];
-    
-    let saveToPdf = function (title,description,articlelink) {
+
+    let saveToPdf = function (title, description, articlelink) {
         //doc.addImage('../Images/Banner.png')
         var doc = new jsPDF();
         var img = new Image();
         var furthurResources = 'Furthur Resources : \n' + articlelink;
         var splitTitle = doc.splitTextToSize(description + '\n\n' + furthurResources, 180);
-        img.src = baseUrl+'/Images/logo2.png';
-        doc.addImage(img, 'PNG', 20, 10, 70, 26);        
+        img.src = baseUrl + '/Images/logo2.png';
+        doc.addImage(img, 'PNG', 20, 10, 70, 26);
         doc.setFontSize(18);
         doc.text(title + '\n\n', 105, 45, null, null, 'center');
         doc.setFontSize(13);
-        doc.text(splitTitle, 20, 65);   
+        doc.text(splitTitle, 20, 65);
         doc.save('intervention.pdf')
     }
 
-    let gotoURL= function(articlelink){
-        window.open = (articlelink,'_blank');
+    let gotoURL = function (articlelink) {
+        window.open = (articlelink, '_blank');
     }
- 
+
 </script>

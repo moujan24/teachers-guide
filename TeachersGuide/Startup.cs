@@ -31,12 +31,14 @@ namespace TeachersGuide
             services.AddTransient<IBehaviourPageOneRepository,BehaviourPageOneRepository>();
             services.AddTransient<IFeedBackRepository,FeedBackRepository>();
             services.AddTransient<IInterventionsModifiedRepository, InterventionsModifiedRepository>();
-            services.AddTransient<IUsersRepository, UsersRepository>();
+            //services.AddTransient<IUsersRepository, UsersRepository>();
+            
             //services.AddTransient<IUsers, MockUsers>();
             //services.AddTransient<IInterventionsRepository,InterventionRepository>();
             //services.AddTransient<IFeedBackRepository,FeedBackRepository>();
             // [Asma Khalid]: Register SQL database configuration context as services. 
-
+            
+            //services.AddSession();
             services.AddMvc();
         }
 
@@ -48,6 +50,7 @@ namespace TeachersGuide
                 app.UseDeveloperExceptionPage();
                 
             }
+            //app.UseSession();
             app.UseMvc(ConfigRoutes);
             app.UseStaticFiles();
             

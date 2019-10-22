@@ -1,55 +1,52 @@
 ﻿@model InterventionsModified
+<div class="container">
+    <div>
+        @if (Model.id != 0)
+        {
+            <h3>Are you sure you want to delete this?</h3>
+            <h4>InterventionsModified</h4>
+            <hr />
+            <dl class="dl-horizontal">
 
-    <div class="container">
-        <div>
-            @if (Model.id != 0)
-            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.title)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.title)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.interventionKey)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.interventionKey)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.description)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.description)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.articleLink)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.articleLink)
+                </dd>
+            </dl>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="id" />
+                <input type="hidden" asp-for="BPTid" />
 
-
-                <h3>Are you sure you want to delete this?</h3>
-                <h4>InterventionsModified</h4>
-                <hr />
-                <dl class="dl-horizontal">
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.title)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.title)
-                    </dd>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.interventionKey)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.interventionKey)
-                    </dd>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.description)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.description)
-                    </dd>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.articleLink)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.articleLink)
-                    </dd>
-                </dl>
-                <form asp-action="Delete">
-                    <input type="hidden" asp-for="id" />
-                    <input type="hidden" asp-for="BPTid" />
-
-                    <input type="submit" value="Delete" class="btn btn-default" />
+                <input type="submit" value="Delete" class="btn btn-default" />
 
 
 
-                </form>
-            }
-            else
-            {
-                <p>Item has been deleted...</p>
-            }
-            <a asp-action="Details_BPT" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout">Back to List</a>
-        </div>
+            </form>
+        }
+        else
+        {
+            <p>Item has been deleted...</p>
+        }
+        <a asp-action="Details_BPT" asp-route-id="@ViewBag.id" asp-route-Data="@ViewBag.rout">Back to List</a>
     </div>
+</div>

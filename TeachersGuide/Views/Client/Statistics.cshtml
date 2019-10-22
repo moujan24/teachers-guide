@@ -35,7 +35,8 @@
                         <canvas id="myBarChart"></canvas>
                     </div>
                     <hr>
-                    Find the total views for all interventions <a href="#">here</a>
+                    Find the total views for all interventions
+                    <a href="#">here</a>
                 </div>
             </div>
 
@@ -119,7 +120,7 @@
     Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
     Chart.defaults.global.defaultFontColor = '#858796';
 
-    // Pie Chart 
+    // Pie Chart
     var ctx = document.getElementById("myPieChart");
     var myPieChart = new Chart(ctx, {
         type: 'doughnut',
@@ -176,7 +177,7 @@
         return s.join(dec);
     }
 
-    // Bar Chart 
+    // Bar Chart
     var bctx = document.getElementById("myBarChart");
     var myBarChart = new Chart(bctx, {
         type: 'bar',
@@ -216,7 +217,7 @@
                     gridLines: {
                         display: false,
                         drawBorder: false,
-                        
+
                     },
                     ticks: {
                         maxTicksLimit: 10,
@@ -230,7 +231,7 @@
                         max: Math.max.apply(null,topTenBehaviours.map(item=>item.count))+50,
                         maxTicksLimit: 10,
                         padding: 10,
-                       
+
                     },
                     gridLines: {
                         color: ["rgb(234, 236, 244)"],
@@ -256,7 +257,7 @@
                 yPadding: 15,
                 displayColors: false,
                 caretPadding: 10,
-                
+
             },
         }
     });

@@ -16,27 +16,12 @@ namespace TeachersGuide.Models
 
         public bool verifyUser(Users user)
         {
-            IEnumerable<Users> dbent= _appDbContext.Users.Where(d => d.Username == "Admin");
-            
-            return true;
+
+            if (user.Username == "admin" && user.Password == "admin")
+                return true;
+            else
+                return false;
         }
-        //public bool addNewItem(BehaviorPageTow behaviorPageTow)
-        //{
-        //    _appDbContext.BehaviorPageTow.Add(behaviorPageTow);
-        //    _appDbContext.SaveChanges();
-        //    return true;
-        //}
-
-   
-        //public IEnumerable<BehaviorPageTow> GetAllBehaviorPageTows()
-        //{
-        //    return _appDbContext.BehaviorPageTow.ToList();
-        //}
-
-        //public IEnumerable<BehaviorPageTow> GetBehaviorPageTows(long Id)
-        //{
-        //    return _appDbContext.BehaviorPageTow.Where(d=>d.BPOId==Id);
-        //}
 
     }
 }
