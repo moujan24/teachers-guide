@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,11 +31,12 @@ namespace TeachersGuide
             services.AddTransient<IBehaviourPageOneRepository,BehaviourPageOneRepository>();
             services.AddTransient<IFeedBackRepository,FeedBackRepository>();
             services.AddTransient<IInterventionsModifiedRepository, InterventionsModifiedRepository>();
+            services.AddTransient<IUsersRepository, UsersRepository>();
             //services.AddTransient<IUsers, MockUsers>();
             //services.AddTransient<IInterventionsRepository,InterventionRepository>();
             //services.AddTransient<IFeedBackRepository,FeedBackRepository>();
-            // [Asma Khalid]: Register SQL database configuration context as services.    
-           
+            // [Asma Khalid]: Register SQL database configuration context as services. 
+
             services.AddMvc();
         }
 
@@ -44,9 +46,11 @@ namespace TeachersGuide
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
             }
             app.UseMvc(ConfigRoutes);
             app.UseStaticFiles();
+            
         }
         private static void ConfigRoutes(IRouteBuilder routes)
         {

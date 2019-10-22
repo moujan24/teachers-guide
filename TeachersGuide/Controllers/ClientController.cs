@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TeachersGuide.Models;
 using TeachersGuide.ViewModels;
@@ -16,7 +14,7 @@ namespace TeachersGuide.Contrillers
         private IInterventionsModifiedRepository _interventionsModifiedRepository;      //NOT READONLY !!
         private IBehaviorPageTowRepository _behaviorPageTowRepository;
         private IBehaviourPageOneRepository _behaviourPageOneRepository;
-
+        
         public ClientController(IFeedBackRepository feedBackRepository,
                                 IInterventionsModifiedRepository interventionsModifiedRepository,
                                 IBehaviorPageTowRepository behaviorPageTowRepository,
@@ -26,13 +24,21 @@ namespace TeachersGuide.Contrillers
             _interventionsModifiedRepository = interventionsModifiedRepository;
             _behaviorPageTowRepository = behaviorPageTowRepository;
             _behaviourPageOneRepository = behaviourPageOneRepository;
+
         }
-        //public IActionResult Login()
-        //{
-        //    return View();
-        //}
+        public IActionResult Login()
+        {
+            return View();
+        }
         public IActionResult Page()
         {
+            ViewData["stats"] = _behaviorPageTowRepository.GetAllBehaviorPageTows();
+            IEnumerable<FeedBack> _feedBack = _feedBackRepository.GetAll();
+            var clientViewModel = new ClientViewModel()
+            {
+                feedBacks = _feedBack.ToList()
+            };
+            ViewData["feedback"] = _feedBack;
             return View();
         }
         public IActionResult Feedback()
@@ -318,17 +324,6 @@ namespace TeachersGuide.Contrillers
             }
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
+       
     }
 }

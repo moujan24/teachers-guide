@@ -1,68 +1,17 @@
 ﻿@model IEnumerable<BehaviorPageTow>
-@*<div class="container">
-        <br />
-        <a asp-controller="Client" asp-action="Page">Back</a>
-        <br />
-        <br />
-        <div class="d-flex flex-wrap align-content-stretch">
-            <table class="table table-striped">
-                <tr>
-                    <th>Behaviours</th>
-                    <th>Click Count</th>
-                </tr>
-                @foreach (var bPT in Model)
-                {
-                    <tr>
-                        <td>@bPT.Behaviour</td>
-                        <td>@bPT.Count</td>
-                    </tr>
-                }
-            </table>
-        </div>
-    </div>*@
-<div class="container-fluid">
 
+<div class="container-fluid">
+    <br />
+    <h1 class="h3 mb-2 text-gray-800">Statistics</h1>
+    <p class="mb-4">Behaviour statistics</p>
     <!-- Content Row -->
     <div class="row">
-
-        <div class="col-xl-8 col-lg-7">
-
-            <!-- Area Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
-                </div>
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="myAreaChart"></canvas>
-                    </div>
-                    <hr>
-                    Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
-                </div>
-            </div>
-
-            <!-- Bar Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                </div>
-                <div class="card-body">
-                    <div class="chart-bar">
-                        <canvas id="myBarChart"></canvas>
-                    </div>
-                    <hr>
-                    Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
-                </div>
-            </div>
-
-        </div>
-
         <!-- Donut Chart -->
-        <div class="col-xl-4 col-lg-5">
+        <div class="col-xl-5 col-lg-6">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Most viewed Behaviours</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Primary sets of Behaviour views</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -70,9 +19,246 @@
                         <canvas id="myPieChart"></canvas>
                     </div>
                     <hr>
-                    Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
+                    Primary sets of behaviours seen in students
                 </div>
+            </div>
+        </div>
+
+        <div class="col-xl-7 col-lg-6">
+            <!-- Bar Chart -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Most viewed Secondary sets of Behaviours</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-bar">
+                        <canvas id="myBarChart"></canvas>
+                    </div>
+                    <hr>
+                    Find the total views for all interventions <a href="#">here</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Search for behaviours</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                Behaviours
+                            </th>
+                            <th>
+                                Views
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var bPT in Model)
+                        {
+                            <tr>
+                                <td>@bPT.Behaviour</td>
+                                <td>@bPT.Count</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    let model= @Html.Raw(Json.Serialize(Model));
+    let behavioursID = model.map(item => item.bpoId).filter((v, i, a) => a.indexOf(v) === i);
+    //let count = model.map(item=>)
+    console.log(model);
+    console.log(behavioursID);
+    let topTenBehaviours = model.sort((a, b) => b.count - a.count).slice(0, 5);    //get objects with highest count values
+
+    let countBehaviours= behavioursID.map(itemx => {
+        return model.filter((item) => item.bpoId == itemx).reduce(((total, item) => total + item.count), 0);
+    });
+
+    let behaviourNames = behavioursID.map(item => {
+        if (item == 2)
+            return 'Disruptive and Defiant'
+        if (item == 3)
+            return 'Difficulties in communication'
+        if (item == 4)
+            return 'Difficulties in social interaction'
+        if (item == 5)
+            return 'Aggressive towards students'
+        else
+            return 'Other behaviours'
+    })
+
+    let behaviourColors = behavioursID.map(item => {
+        if (item == 2)
+            return '#D7153A'
+        if (item == 3)
+            return '#0A7CB9'
+        if (item == 4)
+            return '#F9BE00'
+        if (item == 5)
+            return '#69B32D'
+        else
+            return '#2c9faf'
+    })
+
+    // Set new default font family and font color to mimic Bootstrap's default styling
+    Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+    Chart.defaults.global.defaultFontColor = '#858796';
+
+    // Pie Chart 
+    var ctx = document.getElementById("myPieChart");
+    var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: behaviourNames,
+            datasets: [{
+                data: countBehaviours,
+                backgroundColor: behaviourColors,
+                hoverBackgroundColor: behaviourColors,
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: true
+            },
+            cutoutPercentage: 0,
+        },
+    });
+
+    function number_format(number, decimals, dec_point, thousands_sep) {
+        // *     example: number_format(1234.56, 2, ',', ' ');
+        // *     return: '1 234,56'
+        number = (number + '').replace(',', '').replace(' ', '');
+        var n = !isFinite(+number) ? 0 : +number,
+            prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+            sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+            dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+            s = '',
+            toFixedFix = function (n, prec) {
+                var k = Math.pow(10, prec);
+                return '' + Math.round(n * k) / k;
+            };
+        // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+        s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+        if (s[0].length > 3) {
+            s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+        }
+        if ((s[1] || '').length < prec) {
+            s[1] = s[1] || '';
+            s[1] += new Array(prec - s[1].length + 1).join('0');
+        }
+        return s.join(dec);
+    }
+
+    // Bar Chart 
+    var bctx = document.getElementById("myBarChart");
+    var myBarChart = new Chart(bctx, {
+        type: 'bar',
+        data: {
+            labels: topTenBehaviours.map(item=>item.behaviour),
+            datasets: [{
+                label: "Views",
+                backgroundColor: topTenBehaviours.map(item => {
+                    if (item.bpoId == 2)
+                        return '#D7153A'
+                    if (item.bpoId == 3)
+                        return '#0A7CB9'
+                    if (item.bpoId == 4)
+                        return '#F9BE00'
+                    if (item.bpoId == 5)
+                        return '#69B32D'
+                    else
+                        return '#2c9faf'
+                }),
+                //hoverBackgroundColor: "#2e59d9",
+                borderColor: "#4e73df",
+                data: topTenBehaviours.map(item => item.count),
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 25,
+                    top: 25,
+                    bottom: 0
+                }
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                        drawBorder: false,
+                        
+                    },
+                    ticks: {
+                        maxTicksLimit: 10,
+                        display: false,
+                    },
+                    maxBarThickness: 50,
+                }],
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                        max: Math.max.apply(null,topTenBehaviours.map(item=>item.count))+50,
+                        maxTicksLimit: 10,
+                        padding: 10,
+                       
+                    },
+                    gridLines: {
+                        color: ["rgb(234, 236, 244)"],
+                        zeroLineColor: "rgb(234, 236, 244)",
+                        drawBorder: false,
+                        borderDash: [2],
+                        zeroLineBorderDash: [2]
+                    }
+                }],
+            },
+            legend: {
+                display: false
+            },
+            tooltips: {
+                titleMarginBottom: 10,
+                titleFontColor: '#6e707e',
+                titleFontSize: 14,
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+                
+            },
+        }
+    });
+
+</script>

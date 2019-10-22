@@ -3,25 +3,35 @@
 <footer class="footer bg-light">
     <div class="footer-links d-flex justify-content-center">
         <span class=""><a asp-controller="home" asp-action="feedback">Feedback  </a>&nbsp &nbsp|&nbsp &nbsp</span>
-        <span class=""><a asp-controller="home" asp-action="about"> About Us </a>&nbsp &nbsp|&nbsp &nbsp </span>
-        <span class=""><a asp-controller="Login" asp-action="login"> Client Login</a></span>
-        
+        <span class=""><a asp-controller="home" asp-action="about"> About Us </a>&nbsp &nbsp&nbsp &nbsp </span>
+   @*     <span class=""><a asp-controller="Login" asp-action="login"> Client Login</a></span>*@
+
         @*<div>
-            @if (User.IsSignedIn())
-            {
-                <div>@User.GetUserName()</div>
-                <form method="post" asp-controller="client" aspcontroller="Logout">
-                    <input type="submit" value="Logout" />
-                </form>
-            }
-            else
-            {
-                <a asp-controller="client" asp-action="login">Client Login</a>
-                <a asp-controller="client" asp-action="Register">Register</a>
-            }
-        </div>*@
+                @if (User.IsSignedIn())
+                {
+                    <div>@User.GetUserName()</div>
+                    <form method="post" asp-controller="client" aspcontroller="Logout">
+                        <input type="submit" value="Logout" />
+                    </form>
+                }
+                else
+                {
+                    <a asp-controller="client" asp-action="login">Client Login</a>
+                    <a asp-controller="client" asp-action="Register">Register</a>
+                }
+            </div>*@
     </div>
     <div class="copyright d-flex justify-content-center">
         © 2019 Copyright: Codify Solution
     </div>
 </footer>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150394231-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-150394231-1');
+</script>
