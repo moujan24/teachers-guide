@@ -13,9 +13,9 @@ namespace TeachersGuide.Controllers
         private readonly IUsersRepository usersRepository;
         
         //private SignInManager<Users> _signManager;
-        public LoginController(/*IUsersRepository _usersRepository*/)
+        public LoginController(IUsersRepository _usersRepository)
         {
-            //usersRepository = _usersRepository;
+            usersRepository = _usersRepository;
         }
 
         public IActionResult Login()
@@ -35,11 +35,13 @@ namespace TeachersGuide.Controllers
         {
             if (ModelState.IsValid)
             {
-                //if (usersRepository.verifyUser(model)) {
-                return RedirectToAction("Page", "Client");
-                //}
-                //else
-                //    return BadRequest();
+
+                if (usersRepository.verifyUser(model)) {
+                    TempData["sendFlag"] = true;
+                    return RedirectToAction("Page", "Client");
+                }
+                else
+                    return BadRequest();
             }
             return BadRequest();
         }

@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace TeachersGuide.Models
 {
-    public class UsersRepository:IUsersRepository
+    public class adminRepository:IAdminRepository
     {
         private readonly AppDbContext _appDbContext;
-        public UsersRepository(AppDbContext appDbContext)
+        public adminRepository(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
 
         public bool verifyUser(Users user)
         {
-            if (_appDbContext.admin.FirstOrDefault(d => d.username == user.Username && d.password == user.Password) != null)
+            //Users FindThisUser = _appDbContext.Users.FirstOrDefault(d => d.Username == user.Username && d.Password == user.Password);
+            
+            //if( FindThisUser not null)
+            if (user.Username == "admin" && user.Password == "admin")
                 return true;
             else
                 return false;

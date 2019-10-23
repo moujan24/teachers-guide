@@ -19,5 +19,6 @@ namespace TeachersGuide.Models
         public DbSet<FeedBack> FeedBack { get; set; }
         public DbSet<InterventionsModified> InterventionsModified { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<admin> admin { get; set; }
     }
 }

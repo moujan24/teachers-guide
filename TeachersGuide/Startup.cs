@@ -31,8 +31,8 @@ namespace TeachersGuide
             services.AddTransient<IBehaviourPageOneRepository,BehaviourPageOneRepository>();
             services.AddTransient<IFeedBackRepository,FeedBackRepository>();
             services.AddTransient<IInterventionsModifiedRepository, InterventionsModifiedRepository>();
-            //services.AddTransient<IUsersRepository, UsersRepository>();
-            
+            services.AddTransient<IUsersRepository, UsersRepository>();
+            services.AddTransient<IAdminRepository, adminRepository>();
             //services.AddTransient<IUsers, MockUsers>();
             //services.AddTransient<IInterventionsRepository,InterventionRepository>();
             //services.AddTransient<IFeedBackRepository,FeedBackRepository>();
