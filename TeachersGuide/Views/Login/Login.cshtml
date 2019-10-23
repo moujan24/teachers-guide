@@ -35,35 +35,3 @@
         </div>
     </div>
 </div>
-
-@*@model Users
-
-    <h2>Login</h2>
-    *<div class="container">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="content d-flex flex-column justify-content-around flex-wrap align-items-center">
-            <form method="post" asp-controller="Login" asp-action="Login">
-
-                <div asp-validation-summary="ModelOnly"></div>
-
-                <div>
-                    <label asp-for="Username"></label>
-                    <input asp-for="Username" />
-                    <span asp-validation-for="Username"></span>
-                </div>
-
-                <div>
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" />
-                    <span asp-validation-for="Password"></span>
-                </div>
-
-                <div>
-                    <label asp-for="RememberMe"></label>
-                    <input asp-for="RememberMe" />
-                    <span asp-validation-for="RememberMe"></span>
-                </div>
-                <input type="submit" value="Login" />
-            </form>
-        </div>
-    </div>*@
