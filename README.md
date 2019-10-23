@@ -33,22 +33,7 @@ systems
 
 Find info on the project and the team members at https://nipeshkc7.github.io
 
-### TODO:: 
 
-#### ARPAN :: 
+how to connect to database:
 
-1. Improve buttons contrast in the pages
-2. Improve banner at homepage.
-3. Interventions pages in a tabbed layout
-4. Dashboard page with a standard and consistent design.
-5. Bargraphs to display click counts.
-6. Dashboard page will display overall stats.
-
-#### Moujan ::
-
-1. Login functionality (passwords to be hashed)
-2. Make only the interventions editable (not the behaviours) 
-
-#### Optional:
-
-3. Try to attach click count with a specific date (so the front-end can display click counts by months or weeks in a bargraph or some other type of infographic)
+to connect to the database, you need to restore the databse first using sql server, add the address of the file press ok
