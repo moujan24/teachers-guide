@@ -24,12 +24,6 @@ namespace TeachersGuide.Controllers
         }
 
 
-        //[HttpGet]
-        //public IActionResult Login(string returnUrl = "")
-        //{
-        //    var model = new Users(){ ReturnUrl = returnUrl };
-        //    return View(model);
-        //}
         [HttpPost]
         public async Task<IActionResult> Login(Users model)
         {
